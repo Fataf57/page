@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Exercices pour {{ lesson.nom }}</h2>
+  <ul>
+    {% for exercice in exercices %}
+      <li><a href="{% url 'programmes:exercice_detail' exercice.niveau.slug exercice.matiere.slug exercice.lesson.slug exercice.slug %}">{{ exercice.nom }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

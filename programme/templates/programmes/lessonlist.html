@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-2 text-center">
+  <h1 class="ml-5  ">{{ matiere.nom }}</h1>
+    <button type="button" class="btn btn-success btn-lg custom-button mr-3">
+      <a class="text-white " href="{% url 'programmes:lessoncreate' niveau=matiere.niveau.slug slug=matiere.slug %}">Ajouter un cours</a>
+    </button>
+  </div>
+  
+<div class="container-fluid">
+  <div class="row">
+    {% if user.is_authenticated %}
+      {% for lesson in matiere.lesson.all %}
+        <div class="col-lg-4 mb-4">
+          <div class="card shadow border border-dark" style="width: 18rem;">
+            <div class="card-body">
+              <strong><h5 class="card-title">Chapitre-{{ lesson.position }} {{ lesson.nom }}</h5></strong>
+              <a href="{% url 'programmes:lessonlistdetail' slug=lesson.slug matiere=matiere.slug niveau=matiere.niveau.slug %}" class="btn btn-primary">Voir le cours</a>
+              <p class="card-text">Ajouté par {{ lesson.creer_par }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="col-12">
+        <p>Pour suivre les cours, il faut se connecter. <a href="{% url 'login' %}">Se connecter</a></p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}

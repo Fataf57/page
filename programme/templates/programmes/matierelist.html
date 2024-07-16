@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mb-4 text-center">Les Matieres</h1>
+    <div class="row justify-content-center">
+        {% for matiere in niveau.matiere.all %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ matiere.nom }}</h5>
+                    <a href="{% url 'programmes:lessonlist' slug=matiere.slug niveau=niveau.slug %}" class="btn btn-success btn-lg">Accéder</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

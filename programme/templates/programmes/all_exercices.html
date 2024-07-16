@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <title>Tous les Exercices</title>
+</head>
+<body>
+    <h1>Liste de tous les exercices</h1>
+    <ul>
+        {% for exercice in exercices %}
+            <li>
+                <a href="{{ exercice.fichier.url }}">Télécharger l'exercice</a>        
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+
+{% endblock %}

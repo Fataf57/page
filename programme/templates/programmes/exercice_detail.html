@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>{{ exercice.nom }}</h2>
+  <p>{{ exercice.description }}</p>
+  {% if exercice.fichier %}
+    <a href="{{ exercice.fichier.url }}">Télécharger l'exercice</a>
+  {% endif %}
+{% endblock %}

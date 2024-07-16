@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-2 text-center">
+
+<h1 class="mb-2 ml-3 text-center">Chapitre {{ lesson.position }}:{{ lesson.nom }}</h1>
+<button type="button" class="btn btn-success btn-lg custom-button mr-3">
+  <a class="text-white" href="{% url 'programmes:exercisedetail' niveau=lesson.niveau.slug matiere=lesson.matiere.slug slug=lesson.slug %}">Exercice</a>
+</button>
+</div>
+
+<div class="container mb-3 mt-3" >
+
+  <style>
+
+    
+
+  </style>
+
+
+    <div class="row">
+                    
+                    {% if lesson.video %}
+                    <div class="col-lg-5">
+
+                    <div class="card shadow " style="width: 12rem ;">
+                      <img width="100" height="100"   src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title">Tutoriel</h5>
+                          <a href="{{ lesson.video.url }}" class="btn btn-primary">Telecharger</a>
+                          <a href="{{ lesson.video.url }}" target="_blank"class="btn btn-primary">lire</a>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    {% endif %}
+
+                    {% if lesson.fpe %}
+                    <div class="col-lg-4">
+
+                    <div class="card shadow " style="width: 12rem;">
+                        <img width="100" height="100" src="https://l450v.alamy.com/450vfr/2df863d/symbole-d-image-d-un-ensemble-icone-de-photo-blanche-sur-le-bouton-de-degrade-utilisation-pour-la-banniere-la-carte-l-affiche-la-brochure-la-banniere-l-application-la-conception-web-facile-a-modifier-vecteur-i-2df863d.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">image</h5>
+                          <a href="{{ lesson.fpe.url }} " class="btn btn-primary">Telecharger</a>
+                          <a href="{{ lesson.fpe.url }}" target="_blank" class="btn btn-primary">lire</a>
+                        </div>
+                    </div>
+                  </div>
+
+                    {% endif %}
+
+
+                    {% if lesson.pdf %}
+                    <div class="col-lg-4">
+                    <div class="card shadow " style="width: 12rem;">
+                      <img width="100" height="100" src="data:image/png;base64,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" class="card-img-top" alt="">
+                        <div class="card-body">
+                          <h5 class="card-title">fichier </h5>
+                          <a href="{{ lesson.pdf.url }}" class="btn btn-primary">Telecharger</a>
+                          <a href="{{ lesson.pdf.url }}" target="_blank" class="btn btn-primary">lire</a>
+                        </div>
+                    </div>
+                  </div>
+                  {% endif %}
+
+                 
+            
+                  <div >
+                    <div>
+                        <a href="{% url 'programmes:lessonupdate' niveau=lesson.niveau.slug matiere=lesson.matiere.slug slug=lesson.slug %}" class="btn btn-primary btn-sm mr-2">Modifier la leçon</a>
+                        <a href="{% url 'programmes:lessondelete' niveau=lesson.niveau.slug matiere=lesson.matiere.slug slug=lesson.slug %}" class="btn btn-danger btn-sm">Supprimer la leçon</a>
+                    </div>
+                  </div>
+                  
+                            
+      </div>
+      
+</div>
+
+{% endblock %}

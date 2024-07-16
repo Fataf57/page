@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-12">
+        {% if registered %}
+            <h2>vous etes deja enregistre</h2>
+        {% endif %}
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form1.as_p }}
+            {{ form2.as_p }}
+            <input type="submit" class="btn btn-primary" value="Enregistre">
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Exercice pour {{ lesson.nom }}</h1>
+{% if lesson.exercice %}
+<div class="col-lg-4">
+<div class="card shadow " style="width: 12rem;">
+  <img width="100" height="100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAABIFBMVEX////19fX+AAD9pqL//vn34OD7///2+vn+DgD8GxL9ZVvz/v/9PDX18/b6amD+9/T/8vH9FgoAAAD8JyD7bGdDQ0NiYmIlJSX4AADX19cgICAwMDBzc3MPDw///P/o6Oh/f3/y+/8VFRXu///19vGNjY31IRD48ffx+fTv//ny+fD38/jj4+PJyckaGhqVlZVVVVW8vLxOTk7zuLr6e2v3tqvuj432Lx35xMDv39H8TEjymaD4paH+NjDy6eL9bHD6X1Tve3L9h4X2qKbyhXv10M3rkX77fH/wmoz3q5/xwLTy2dT5dWL9raHwZFH+YGP4UEj0q6v5ucH1y8/1Njbu/Ov/x8v3W0z7bFv/TVH/lp76VWD42uv349+UlJSlpaU1cR9ZAAAIlElEQVR4nO2dDVvayBaAM6Nmko4RAiqnVNCYkSRE7Vo/oNyK1YqKbruy6vbjXrb//1/sCdrWrtoNkN52k/M++IFGHud9zpycmQwZTSMIgiAIgiAIgiAIgiAIgiAIgiAIgvh/ouNDjz6P8KdVrZr0v/NTow/aq4+GNjmS5H8tk1Wp6flcfiTUaBH57yTqglpuc6s4Go3i1nY+M7omdZ1NNDgY9kiYNoC9k9er+uSPbsn3R69rU9NgmLYNxmigMd5oymoWZFWf24DhUWzNzI7Co1YNUBdsy2oGOmO+ZptGcWdKuIEcAVc8/08RbBNepNzVoLx6xE3YnfLZ6Mj2I7TFX2BspVuY3uSmUWs7agxZLAz2sCvyHazX/B/doO/KS6MGzUCF48hiytkHswY7QTXF1byuWWBDS3pefRxXwvOt/ShvHcj09kM82ze5zV+JscLqhkMe2XKj8cCPbtd3AcfOE2DyThKyfHbETZMf6NXUlhBygpu8n4ArZlnhEdZr/NDX0xlZGFooC6aSkFUPfbETVbfHAUZWGqv5SX0Cc1YisiL8k6jeOo4mblIYXQnLUtUTjrG1h2OoFIZWwrIc4XQjWzOTKXSVeGR5fmTL5I+ETF/eSlhWhNuFmsnPVTTf/KOblyzfQVaod3lkK5e6vPUdZPnK2cZanr9N3dz8kLIsYf3zQV7d2YwqiHNNaKnyNYQsy53qtFW8qRxxGsXWrMysLPnKhtp+vGkvPzyNYqupp8rWELLOYG/qV5iJNaPqMfc12MYlFqeZlIXjvkC5DX4aZ4YCjco3hs3PZJpGPfFlyZljweQs35cxDo7kRhNlB6m6PjaErFbXUc4W340piyluwm8p6oTDy3pn8LiyAm4bM6m62jNMN9yRnpw2IK4sxk3j0YjLmH5OhkjwB3tBKMGOHVliICtFKWsYWRPT0m9z0yZZMdq+CbrfBPucZMWgD1NYa/GDuFeCMi1L8p5s2bxHsmLgHJ9LPDb2NcZMyxJN6HIbcjFdZVtW3YGGbbx1SVYcnCNu8tdVkhUD7+p3lPU8xlQpyWJWsGeYoMdeQ5JpWfVosHepy7ihlWlZIrpmA03qhnEa706D8f7QrDPBYgnLtKwzTO+vJN/XGYu1/jSzskTOCg64CZboQCcUJOtbWEGowDTe6n71CFQY79phVmX5XtDDwGoKJUVrWjok61t47q5dA4kh5eRhSydZ3yC8usD0vuP4llL+FO8Film+Er4jQsv3lKWsu+vosyvL/c2woe/gd47lnMKFG7j5qT82e73t7eZq4Ie+ckjWDRhNpvHStbDIsgI3nIXZSw4A5m7RxC/2QdtRHsm6Qe6DyU8d5lSf97ZqADU4umgrX7qSVad20FfTuSJZEVive2Dauzrb/pVz2Ju4YNU9eCWFyHmWH9RdHAdBmyLrutWee4INn3kD8LLbl8oXVl1OQKOpi3rdszwWQI1370wKZlKWlw88btvAj39XruMoaVnCU27nEhpdJvEE6XYwsibuVPWZlHUlO2/AhAm3fsVySqE8xpTyHL9XBJjd7Nf/aOCZsnPncmK2ZOWxlrKEe/EWsNmzUnhh9GYmwbDGCkVehGHQfAeYxPABr907MxGZkiUCpUL3+Xt+XCvakHPuO8SZPOt9+DCxfeVmvCjNW57s/5fPtntg8NPw3uWR9ZwIg0BYnrg7bZMpWUpcHcO7/7nRYpA38oGJBs9hnvBR2j1hlxlZOOCTTX7ZkfVqCwOr79TvncMSTGAGs/Ah7ujKjCwcF7sHvKuLvHvITYi16DazspjUZwfjZhw0m/zQGcFVdmT54gQ8ZQmng65eypFuY5AZWcyHswAzUhsM2PXvDPtI1lf0GjLEyqFmG412qGJfK8ykLP+ilpP1bYyrFnO8euwFytmUJd+bWw3g8MFh6sobqR9mRpZXz73YLZ53+5jbLcsa6XZRmZEVMpXTXemNc9uVzMiy8EyIaX28Ox9lRRbaslTs1aNZlxVlqvFcZUnW+JAskkWy4kGyhoBkDQHJGoI4srTbdXz8mj5jsrSlBWRp5eMqKtJWBk/+XLv53cJnNJIVCZlbLlcKhUqlsCGYNo9PkMLcWmRHK60PnuIPSNa1rNL6ytOV+fVS4THKKpcXluafrJcLa1GgPSmtLw2gyPokq7CIBy2tlxc0lFVY1bTFpeXS8uJAVkFcv8b9f5xJWfh1tVCqDGQ9jn74S3n5qTaQ9YClbMsSBRTzSRZbK5RKJOtBWYso63NkMQ2frZKse2VpQvu4XH52S9ZcqbI2kLUasUiyPsmqfNz4iCm9sPGlG2LSqmxEskqDwmHloTI1e7JKlUJluVxY0u6TVUYqKxRZn2XNzc09m9+ICqtb3bBw3Q0fR6ySrE+yCquLi2xQSX2WNTg3UoK/T9bn/P2ldKiU5qh0iCcrSlkfKbJiyMKxzUqlVGIk6x9lrS89XZqrlCtrJOs+Weu3ZQ2maJYLT26maMok6ytZC/PPvsha+mUeWdhYFNfu5p+RrG/z4IQMyRqLdMoySVY8riMrkR2d7siCVMpKZkenO7LSF1laJOsikV3o/oYXvQc9TbJ0Xd/kNd5jyh93OdbXWHV2gS98oqdo9/Kqrk9iamlJMdobAx4CI9WZBRvO0rTRgKZX5dvBXQjEWHuy/h3Ld87ANnbx5dOz1UC0xUSH23atHyQaWsoT04YJ22nqhVq0eYmcibZG7svQspSVACFjoWqfY+++9NMTVjfoeRMbZh62c6NsuX0frP2iCCbwfopOhTfo+plt1AwwWzMJcV7khmlAJ027DNyA5UO/xU3bNhLDNk247KSpxrqNddLghgHJmMIPbh8yLVX7V9zC1/OnW5fTSfGmm0trWEVM6lLPJYPIeenbB/I2AguupHoNlm5RWIlEXuznJdEUk7oSiyAIgiAIgiAIgiAIgiAIgiAIgiCIn5u/AI5YN91c4AtxAAAAAElFTkSuQmCC" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title">fichier </h5>
+      <a href="{{ lesson.pdf.url }}" class="btn btn-primary">Telecharger</a>
+      <a href="{{ lesson.pdf.url }}" target="_blank" class="btn btn-primary">lire</a>
+    </div>
+</div>
+</div>
+{% else %}
+<p>Désolé, il n'y a pas d'exercices pour cette leçon.</p>
+
+  {% endif %}
+
+{% endblock %}

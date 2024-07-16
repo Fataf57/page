@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4 text-center"> Niveu d'Etude  </h2>
+<div class="container">
+    <div class="row">
+        {% for niveau in niveaux %}
+            <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div class="card w-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ niveau.nom }}</h5>
+                        <a href="{% url 'programmes:matierelist' slug=niveau.slug %}" class="btn btn-success">Acceder</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
